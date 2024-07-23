@@ -11,5 +11,5 @@ int main(int argc, char **argv) {
 }
 
 int add(int a, int b) {
-    return a + = b;
+    return a + b;
 }
