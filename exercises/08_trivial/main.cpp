@@ -13,7 +13,7 @@ static unsigned long long fibonacci(FibonacciCache &cache, int i) {
     {
         return cache.cache[i];
     }
-    for (; cache.cache[cache.cached]<=i; ++cache.cached) {
+    for (;cache.cached<=i; ++cache.cached) {
         cache.cache[cache.cached] = cache.cache[cache.cached - 1] + cache.cache[cache.cached - 2];
     }
     return cache.cache[i];
