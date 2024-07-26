@@ -3,9 +3,13 @@
 struct Fibonacci {
     int numbers[11];
 
-    int get(int i) const {
-        if (i < 0 || i >= 11)
-            return -1;
+    Fibonacci(const int (&arr)[11]) {
+        for (int i = 0; i < 11; ++i) {
+            numbers[i] = arr[i];
+        }
+    }
+
+    int get(int i) {
         return numbers[i];
     }
 };
