@@ -10,9 +10,10 @@ class DynFibonacci {
 
 public:
     // TODO: 实现动态设置容量的构造器
-    DynFibonacci(int capacity): cache(new size_t[capacity+1]), cached(1) {
+    DynFibonacci(int capacity): cache(new size_t[capacity]), cached(0) {
         cache[0]=0;
         cache[1]=1;
+        cached=2;
     }
 
     // TODO: 实现析构器，释放缓存空间
