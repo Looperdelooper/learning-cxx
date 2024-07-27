@@ -18,7 +18,7 @@ public:
     {
         cache[0]=0;
         cache[1]=1;
-        cached=1;
+        cached=2;
     }
 
     // TODO: 实现正确的缓存优化斐波那契计算
