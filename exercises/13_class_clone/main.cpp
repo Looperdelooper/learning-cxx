@@ -15,7 +15,13 @@ public:
     }
 
     // TODO: 实现复制构造器
-    DynFibonacci(DynFibonacci const &other) = delete;
+    DynFibonacci(DynFibonacci const &other):cache(new size_t[other.cached]),cached(other.cached)
+    {
+        for(int i=0;i<cached;i++)
+        {
+            cache[i]=other.cache[i];
+        }
+    }
 
     // TODO: 实现析构器，释放缓存空间
     ~DynFibonacci()
