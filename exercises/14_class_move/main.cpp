@@ -43,7 +43,7 @@ public:
     }
 
     // TODO: 实现正确的缓存优化斐波那契计算
-    size_t operator[](int i) {
+    size_t operator[](int i) const{
         for (; cached<=i; ++cached) {
             cache[cached] = cache[cached - 1] + cache[cached - 2];
         }
