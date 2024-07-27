@@ -16,11 +16,12 @@ public:
     }
 
     // TODO: 实现移动构造器
-    DynFibonacci(DynFibonacci &&other) noexcept 
-    :cache(other.cache),cached(other.cached)
+     DynFibonacci(DynFibonacci &&other) noexcept 
+    :cache(other.cache),cached(other.cached),capacity(other.capacity)
     {
         other.cache=nullptr;
         other.cached=0;
+        other.capacity=0;
     }
 
     // TODO: 实现移动赋值
@@ -31,8 +32,10 @@ public:
             delete[] cache;
             cache = other.cache;
             cached = other.cached;
+            capacity = other.capacity;
             other.cache = nullptr;
             other.cached = 0;
+            other.capacity = 0;
         }
         return *this;
     }
