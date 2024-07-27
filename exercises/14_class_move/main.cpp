@@ -13,21 +13,21 @@ public:
     DynFibonacci(int capacity): cache(new size_t[capacity]), cached(0){
         cache[0]=0;
         cache[1]=1;
-        cached=2;
     }
 
     // TODO: 实现移动构造器
-    DynFibonacci(DynFibonacci &&other) noexcept :cache(other.cache),cached(other.cached)
+    DynFibonacci(DynFibonacci &&other) noexcept 
+    :cache(other.cache),cached(other.cached)
     {
         other.cache=nullptr;
-        other.cached=0;   
+        other.cached=0;
     }
 
     // TODO: 实现移动赋值
     // NOTICE: ⚠ 注意移动到自身问题 ⚠
-    DynFibonacci &operator=(DynFibonacci &&other) noexcept 
-    {
-        if (this != &other) {
+    DynFibonacci &operator=(DynFibonacci &&other) noexcept{
+        if(this!=&other)
+        {
             delete[] cache;
             cache = other.cache;
             cached = other.cached;
@@ -38,10 +38,9 @@ public:
     }
 
     // TODO: 实现析构器，释放缓存空间
-    ~DynFibonacci()
-    {
+    ~DynFibonacci(){
         delete[] cache;
-    };
+    }
 
     // TODO: 实现正确的缓存优化斐波那契计算
     size_t operator[](int i) {
