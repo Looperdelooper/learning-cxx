@@ -13,15 +13,15 @@ public:
     DynFibonacci(int capacity): cache(new size_t[capacity]), cached(0){
         cache[0]=0;
         cache[1]=1;
+        cached=2;
     }
 
     // TODO: 实现移动构造器
-     DynFibonacci(DynFibonacci &&other) noexcept 
-    :cache(other.cache),cached(other.cached),capacity(other.capacity)
+    DynFibonacci(DynFibonacci &&other) noexcept 
+    :cache(other.cache),cached(other.cached)
     {
         other.cache=nullptr;
         other.cached=0;
-        other.capacity=0;
     }
 
     // TODO: 实现移动赋值
@@ -32,10 +32,8 @@ public:
             delete[] cache;
             cache = other.cache;
             cached = other.cached;
-            capacity = other.capacity;
             other.cache = nullptr;
             other.cached = 0;
-            other.capacity = 0;
         }
         return *this;
     }
