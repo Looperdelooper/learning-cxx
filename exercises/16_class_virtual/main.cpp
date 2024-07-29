@@ -67,7 +67,7 @@ int main(int argc, char **argv) {
 
     ASSERT(rac.virtual_name() == 'C', MSG);
     ASSERT(rbd.virtual_name() == 'C', MSG);
-    ASSERT(rac.direct_name() == 'A', MSG);
+    ASSERT(rac.direct_name() == 'C', MSG);
     ASSERT(rbd.direct_name() == 'D', MSG);
 
     A &rad = d;
