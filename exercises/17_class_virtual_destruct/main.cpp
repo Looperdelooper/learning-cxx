@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
     auto a = new A;
     auto b = new B;
     ASSERT(A::num_a == 2, "Fill in the correct value for A::num_a");
-    ASSERT(B::num_b == 2, "Fill in the correct value for B::num_b");
+    ASSERT(B::num_b == 1, "Fill in the correct value for B::num_b");
     ASSERT(a->name() == 'A', "Fill in the correct value for a->name()");
     ASSERT(b->name() == 'B', "Fill in the correct value for b->name()");
 
