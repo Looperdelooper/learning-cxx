@@ -79,10 +79,10 @@ int main(int argc, char **argv) {
             ASSERT(vec.size() == 20, "Fill in the correct value.");
             ASSERT(vec.capacity() == 256, "Fill in the correct value.");
             ASSERT(vec[15] == "z", "Fill in the correct value.");
-            ASSERT(vec[?] == 'a', "Fill in the correct value.");
-            ASSERT(vec[?] == 'b', "Fill in the correct value.");
-            ASSERT(vec[?] == 'c', "Fill in the correct value.");
-            ASSERT(vec[?] == 'd', "Fill in the correct value.");
+            ASSERT(vec[16] == 'a', "Fill in the correct value.");
+            ASSERT(vec[17] == 'b', "Fill in the correct value.");
+            ASSERT(vec[18] == 'c', "Fill in the correct value.");
+            ASSERT(vec[19] == 'd', "Fill in the correct value.");
         }
     }
 
