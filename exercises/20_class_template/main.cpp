@@ -33,6 +33,7 @@ struct Tensor4D {
     // 例如，`this` 形状为 `[1, 2, 3, 4]`，`others` 形状为 `[1, 2, 1, 4]`，
     // 则 `this` 与 `others` 相加时，3 个形状为 `[1, 2, 1, 4]` 的子张量各自与 `others` 对应项相加。
     Tensor4D &operator+=(Tensor4D const &others) {
+         // TODO: 实现单向广播的加法
         for (int i = 0; i < 4; ++i) {
             ASSERT((shape[i] == others.shape[i] || others.shape[i] == 1), "Shape mismatch or invalid for broadcasting.");
         }
