@@ -43,7 +43,7 @@ int main(int argc, char **argv) {
             vec.insert(vec.begin()+1, 1.5);
             ASSERT((vec == std::vector<double>{1, 1.5, 2, 3, 4, 6}), "Make this assertion pass.");
             vec.erase(vec.begin()+1);
-            ASSERT((vec == std::vector<double>{1, 1.5, 2, 4, 6}), "Make this assertion pass.");
+            ASSERT((vec == std::vector<double>{1, 2, 3, 4, 6}), "Make this assertion pass.");
         }
         {
             vec.shrink_to_fit();
