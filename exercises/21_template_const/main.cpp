@@ -38,10 +38,9 @@ private:
     unsigned int data_index(unsigned int const indices[N]) const {
         unsigned int index = 0;
         unsigned int stride = 1;
-        for (unsigned int i = N; i-- > 0;) {
-            assert(indices[i] < shape[i] && "Index out of bounds");
-            index += indices[i] * stride;
-            stride *= shape[i];
+        for (unsigned int i = 0; i < N; ++i) {
+            ASSERT(indices[i] <= shape[i], "indices[i] <= shape[i]");
+            // TODO: 计算 index
         }
         return index;
     }
