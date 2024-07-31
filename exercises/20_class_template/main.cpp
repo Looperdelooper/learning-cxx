@@ -10,7 +10,7 @@ struct Tensor4D {
     Tensor4D(unsigned int const shape_[4], T const *data_) {
         unsigned int size = 1;
         // TODO: 填入正确的 shape 并计算 size
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; ++i)
         {
             /* code */
             shape[i]=shape_[i];
@@ -33,7 +33,34 @@ struct Tensor4D {
     // 例如，`this` 形状为 `[1, 2, 3, 4]`，`others` 形状为 `[1, 2, 1, 4]`，
     // 则 `this` 与 `others` 相加时，3 个形状为 `[1, 2, 1, 4]` 的子张量各自与 `others` 对应项相加。
     Tensor4D &operator+=(Tensor4D const &others) {
-        // TODO: 实现单向广播的加法
+        for (int i = 0; i < 4; ++i) {
+            ASSERT((shape[i] == others.shape[i] || others.shape[i] == 1), "Shape mismatch or invalid for broadcasting.");
+        }
+
+        unsigned int size = 1;
+        for (int i = 0; i < 4; ++i) {
+            size *= shape[i];
+        }
+
+        for (unsigned int i = 0; i < size; ++i) {
+            unsigned int idx[4];
+            unsigned int div = i;
+            for (int j = 3; j >= 0; --j) {
+                idx[j] = div % shape[j];
+                div /= shape[j];
+            }
+
+            unsigned int other_idx[4];
+            for (int j = 0; j < 4; ++j) {
+                other_idx[j] = others.shape[j] == 1 ? 0 : idx[j];
+            }
+
+            unsigned int other_flat_idx = other_idx[0] * (others.shape[1] * others.shape[2] * others.shape[3])
+                                          + other_idx[1] * (others.shape[2] * others.shape[3])
+                                          + other_idx[2] * others.shape[3]
+                                          + other_idx[3];
+            data[i] += others.data[other_flat_idx];
+        }
         return *this;
     }
 };
