@@ -25,14 +25,11 @@ float sigmoid(float x) {
 TaggedUnion sigmoid_dyn(TaggedUnion x) {
     TaggedUnion ans{x.type};
     // TODO: 根据 type 调用 sigmoid
-     switch (x.type) {
-        case DataType::Float:
-            ans.f = sigmoid(x.f);
-            break;
-        case DataType::Double:
-            ans.d = sigmoid(x.d);
-            break;
-     }
+    if (ans.type == DataType::Float) {
+        ans.f = sigmoid(x.f);
+    } else if (x.type == DataType::Double) {
+        ans.d = sigmoid(x.d);
+    }
     return ans;
 }
 
