@@ -23,6 +23,7 @@ enum class Color : int {
     Blue,
 };
 
+
 ColorEnum convert_by_pun(Color c) {
     // `union` 表示在同一内存位置存储的不同类型的值。
     // 其常见用法是实现类型双关转换，即将一种类型的值转换为另一种无关类型的值。
