@@ -19,5 +19,6 @@ int main(int argc, char **argv) {
     // int size =
     ASSERT(size == 602112, "4x1x3x224x224 = 602112");
     return 0;
+
     
 }
